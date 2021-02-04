@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - uses: azure/docker-login@v1
+    - uses: xiaolong2015/checkout@v1
+    - uses: xiaolong2015/docker-login@v1
       with:
         login-server: ${{ secrets.ACR_NAME }}
         username: ${{ secrets.ACR_USERNAME }}

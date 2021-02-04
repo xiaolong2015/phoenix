@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: xiaolong2015/checkout@v1
     - name: Build the Docker image
       env:
         DOCKER_HUB: ${{ secrets.DOCKER_HUB }}
