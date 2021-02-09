@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-calc-back
+  labels:
+    app: go-calc-back
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: go-calc-back
+  template:
+    metadata:
+      labels:
+        app: go-calc-back
+    spec:
+      containers:
+      - name: go-calc-back
+        image: rongcontainerregistry001.azurecr.io/go-calc-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: acr-docker-registry
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: js-calc-back
+  labels:
+    app: js-calc-back
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: js-calc-back
+  template:
+    metadata:
+      labels:
+        app: js-calc-back
+    spec:
+      containers:
+      - name: js-calc-back
+        image: rongcontainerregistry001.azurecr.io/js-calc-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: acr-docker-registry
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: js-calc-frontend
+  labels:
+    app: js-calc-frontend
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: js-calc-frontend
+  template:
+    metadata:
+      labels:
+        app: js-calc-frontend
+    spec:
+      containers:
+      - name: js-calc-frontend
+        image: rongcontainerregistry001.azurecr.io/js-calc-frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+        - name: acr-docker-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-calc-back
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: go-calc-back
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: js-calc-back
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: js-calc-back
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: js-calc-frontend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: js-calc-frontend
