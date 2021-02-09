@@ -12,9 +12,9 @@ variables:
 
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '7fa4287c-d286-4eee-9ada-45e75ae8efe5'
-  imageRepository: 'rongphoenix'
+  imageRepository: 'ronghelloworld'
   containerRegistry: 'rongcontainerregistry001.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: 'apps/aci-helloworld/Dockerfile'
   tag: '$(Build.BuildId)'
   imagePullSecret: 'rongcontainerregistry001c7a1-auth'
 
