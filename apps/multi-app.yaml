@@ -21,9 +21,7 @@ spec:
         image: rongcontainerregistry001.azurecr.io/go-calc-backend:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-      imagePullSecrets:
-        - name: acr-docker-registry
+        - containerPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,9 +46,7 @@ spec:
         image: rongcontainerregistry001.azurecr.io/js-calc-backend:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-      imagePullSecrets:
-        - name: acr-docker-registry
+        - containerPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -75,9 +71,7 @@ spec:
         image: rongcontainerregistry001.azurecr.io/js-calc-frontend:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-      imagePullSecrets:
-        - name: acr-docker-registry
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
