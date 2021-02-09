@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: rongphoenix 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rongphoenix
+  template:
+    metadata:
+      labels:
+        app: rongphoenix 
+    spec:
+      containers:
+        - name: rongphoenix 
+          image: rongcontainerregistry001.azurecr.io/rongphoenix
+          ports:
+          - containerPort: 80
