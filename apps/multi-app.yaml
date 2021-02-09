@@ -81,6 +81,8 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: go-calc-back
 ---
@@ -92,6 +94,8 @@ spec:
   type: ClusterIP
   ports:
   - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: js-calc-back
 ---
@@ -103,5 +107,7 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
+    protocol: TCP
+    targetPort: 80
   selector:
     app: js-calc-frontend
