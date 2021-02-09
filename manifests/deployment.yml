@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: ronghelloworld 
-          image: rongcontainerregistry001.azurecr.io/ronghelloworld
+          image: rongcontainerregistry001.azurecr.io/ronghelloworld:#{Build.BuildNumber}#
           ports:
           - containerPort: 80
