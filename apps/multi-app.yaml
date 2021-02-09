@@ -68,7 +68,7 @@ spec:
     spec:
       containers:
       - name: js-calc-frontend
-        image: rongcontainerregistry001.azurecr.io/js-calc-frontend:latest
+        image: rongcontainerregistry001.azurecr.io/js-calc-frontend:#{Build.BuildNumber}#
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
