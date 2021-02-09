@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: rongphoenix 
+  name: ronghelloworld 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rongphoenix
+      app: ronghelloworld
   template:
     metadata:
       labels:
-        app: rongphoenix 
+        app: ronghelloworld 
     spec:
       containers:
-        - name: rongphoenix 
-          image: rongcontainerregistry001.azurecr.io/rongphoenix
+        - name: ronghelloworld 
+          image: rongcontainerregistry001.azurecr.io/ronghelloworld
           ports:
           - containerPort: 80
